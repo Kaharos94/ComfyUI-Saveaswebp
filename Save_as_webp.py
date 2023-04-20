@@ -87,7 +87,7 @@ class Save_as_webp:
                 boolloss = True
             if mode =="lossy":
                 boolloss = False
-            print({compression},{boolloss})
+            
 
             img.save(os.path.join(full_output_folder, file), method=6 , exif= imgexif, lossless=boolloss , quality=compression) #Save as webp - options to be determined
             results.append({
