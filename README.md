@@ -14,11 +14,38 @@ Import of Webpfiles breaks if import a workflow that has }Prompt:{ in a Node tha
 
 ## Description:
 
-This adds a custom node to save a picture as a Webp File and also adds a script to Comfy to drag and drop generated webpfiles into the UI to load the workflow. 
-At the moment it saves the WebP file as lossless, achieving filesizes around 30% smaller than PNG at similar quality. 
+This adds a custom node to save a picture as a Webp File and also adds a script to Comfy to drag and drop generated webpfiles into the UI to load the workflow.
 
-I'm planning to add compression options to the node itself soon. 
+I've added a compression slider and a lossy/lossless option. The compression slider is a bit misleading.
+
+In lossless mode, it only affects the "effort" taken to compress where 100 is the smallest possible size and 1 is the biggest possible size, it's a tradeoff for saving speed.
+
+In lossy mode, that's the other way around, where 100 is the biggest possible size with the least compression and 1 is the smallest possible size with maximum compression. 
+
+On default it's set to lossy with a compression of 80, below are examples for that.
+
+ 
 
 ## Installation: 
 
 Copy the webpinfo folder into ComfyUI/web/extensions and the Save_as_webp.py in ComfyUI/custom-nodes. 
+
+##Examples: 
+
+Lossless with compression set to 100, 17069KB
+https://postimg.cc/2bPkkFN9
+
+Lossless with compression set to 10, 17059KB
+https://postimg.cc/bZTwxt1d
+
+
+Lossy with compression set to 100 , 5384 KB
+https://postimg.cc/WFDpcYCJ
+
+
+Lossy with compression set to 10, 174 KB
+https://postimg.cc/VSkLDkFg
+
+
+Lossy with compression set to 80 ( Default ) , 935 KB
+https://postimg.cc/3yfr6QST
