@@ -12,6 +12,8 @@ Also, Webp only supports files up to 16383 x 16383.
 Import of Webpfiles breaks if import a workflow that has }Prompt:{ in a Node that has dynamic wildcards disabled.
 
 
+Node doesn't resize on Save - image is in there, just needs to be resized to be visible.
+
 ## Description:
 
 This adds a custom node to save a picture as a Webp File and also adds a script to Comfy to drag and drop generated webpfiles into the UI to load the workflow.
