@@ -20,7 +20,7 @@ class Save_as_webp:
         return {"required": 
                     {"images": ("IMAGE", ),
                     "filename_prefix": ("STRING", {"default": "ComfyUI"}),
-                    "mode":(["lossless","lossy"],),
+                    "mode":(["lossy","lossless"],),
                     "compression":("INT", {"default": 80, "min": 1, "max": 100, "step": 1},)},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
                 }
