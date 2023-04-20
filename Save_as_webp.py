@@ -6,9 +6,9 @@ import folder_paths
 import os
 import json
 
-// by Kaharos94
-// https://github.com/Kaharos94/ComfyUI-Saveaswebp
-// comfyUI node to save an image in webp format
+# by Kaharos94
+# https://github.com/Kaharos94/ComfyUI-Saveaswebp
+# comfyUI node to save an image in webp format
 
 class Save_as_webp:
     def __init__(self):
@@ -19,7 +19,9 @@ class Save_as_webp:
     def INPUT_TYPES(s):
         return {"required": 
                     {"images": ("IMAGE", ),
-                     "filename_prefix": ("STRING", {"default": "ComfyUI"})},
+                    "filename_prefix": ("STRING", {"default": "ComfyUI"}),
+                    "mode":(["lossless","lossy"],),
+                    "compression":("INT", {"default": 80, "min": 1, "max": 100, "step": 1},)},
                 "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
                 }
 
@@ -30,7 +32,7 @@ class Save_as_webp:
 
     CATEGORY = "image"
 
-    def Save_as_webp(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
+    def Save_as_webp(self, mode , compression, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None , ):
         def map_filename(filename):
             prefix_len = len(os.path.basename(filename_prefix))
             prefix = filename[:prefix_len + 1]
@@ -81,7 +83,13 @@ class Save_as_webp:
                     workflowmetadata += "".join(json.dumps(extra_pnginfo[x]))
             imgexif[0x010e] = "Workflow:"+ workflowmetadata #Add Workflowstring to EXIF position 0x010e (Exif.Image.ImageDescription)
             file = f"{filename}_{counter:05}_.webp"
-            img.save(os.path.join(full_output_folder, file), exif= imgexif,lossless=1 ,Quality=100) #Save as webp - options to be determined
+            if mode =="lossless":
+                boolloss = True
+            if mode =="lossy":
+                boolloss = False
+            print({compression},{boolloss})
+
+            img.save(os.path.join(full_output_folder, file), method=6 , exif= imgexif, lossless=boolloss , quality=compression) #Save as webp - options to be determined
             results.append({
                 "filename": file,
                 "subfolder": subfolder,
