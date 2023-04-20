@@ -30,7 +30,7 @@ On default it's set to lossy with a compression of 80, below are examples for th
 
 Copy the webpinfo folder into ComfyUI/web/extensions and the Save_as_webp.py in ComfyUI/custom-nodes. 
 
-##Examples: 
+## Examples: 
 
 Lossless with compression set to 100, 17069KB
 https://postimg.cc/2bPkkFN9
