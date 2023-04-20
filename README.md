@@ -5,9 +5,12 @@ Save a picture as Webp file in Comfy + Workflow loading
 
 I'm a novice at best at coding and some of the code is pretty hacky, so this can definitely break.
 
+Also, Webp only supports files up to 16383 x 16383.
+
 ### Known issues:
 
 Import of Webpfiles breaks if import a workflow that has }Prompt:{ in a Node that has dynamic wildcards disabled.
+
 
 ## Description:
 
