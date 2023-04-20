@@ -6,7 +6,9 @@ import folder_paths
 import os
 import json
 
-
+// by Kaharos94
+// https://github.com/Kaharos94/ComfyUI-Saveaswebp
+// comyUI node to save an image in webp format
 
 class Save_as_webp:
     def __init__(self):
