@@ -30,7 +30,7 @@ On default it's set to lossy with a compression of 80, below are examples for th
 
 ## Installation: 
 
-Copy the webpinfo folder into ComfyUI/web/extensions and the Save_as_webp.py in ComfyUI/custom-nodes. 
+Use git clone https://github.com/Kaharos94/ComfyUI-Saveaswebp in your ComfyUI custom nodes directory
 
 ## Examples: 
 
