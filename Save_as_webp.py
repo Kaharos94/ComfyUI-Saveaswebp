@@ -1,7 +1,5 @@
-import torch
 import numpy as np
 from PIL import Image
-from PIL.PngImagePlugin import PngInfo
 import folder_paths
 import os
 import json
