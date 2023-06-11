@@ -46,11 +46,15 @@ app.handleFile = async function(file) { // Add the 'file' parameter to the funct
 	if (file.type === "image/webp") {
 		
 		const webpInfo =await getWebpExifData(file);
-			if (webpInfo) {
-				if (webpInfo.workflow) {
+		if (webpInfo) {
+			if (webpInfo.workflow) {
+				if(app.load_workflow_with_components) {
+					app.load_workflow_with_components(webpInfo.workflow);
+				}
+				else
 					this.loadGraphData(JSON.parse(webpInfo.workflow));
-					}
 			}
+		}
 	} else {
 		return handleFile.apply(this, arguments);
 	}
